@@ -1,0 +1,25 @@
+jwt:
+    expiration:
+        time: 90000
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        initialize: true
+        password: sasa
+        url: jdbc:mysql://localhost:3306/spring-reddit-clone?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    mail:
+        host: smtp.mailtrap.io
+        password: 57407cde26be9c
+        port: 25
+        protocol: smtp
+        username: b5707a615ef2d7
+    name:  api-backend-reddit
+
+    info:
+    version: "v1"
+    description: "Api reddit social network"
