@@ -1,0 +1,9 @@
+### Controller  : AuthController
+### Method      : signup
+### Description : registra un nuevo usuario
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+< ./request/signup.json
+
+###
