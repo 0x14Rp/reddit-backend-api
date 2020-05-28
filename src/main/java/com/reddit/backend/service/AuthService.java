@@ -1,6 +1,7 @@
 package com.reddit.backend.service;
 
 import com.reddit.backend.dto.RegisterRequest;
+import com.reddit.backend.exception.SpringRedditException;
 import com.reddit.backend.model.NotificationEmail;
 import com.reddit.backend.model.User;
 import com.reddit.backend.model.VerificationToken;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import static com.reddit.backend.util.Constants.ACTIVATION_EMAIL;
@@ -57,5 +59,19 @@ public class AuthService {
         verificationToken.setUser(user);
         verificationTokenRepository.save(verificationToken);
         return token;
+    }
+
+    public void verifyAccount(String token) {
+        Optional<VerificationToken> verificationTokenOptional = verificationTokenRepository.findByToken(token);
+        verificationTokenOptional.orElseThrow(() -> new SpringRedditException("Invalid Token"));
+        fetchUserAndEnable(verificationTokenOptional.get());
+    }
+
+
+    private void fetchUserAndEnable(VerificationToken verificationToken) {
+        String username = verificationToken.getUser().getUsername();
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new SpringRedditException("User Not Found with id - " + username));
+        user.setEnabled(true);
+        userRepository.save(user);
     }
 }
