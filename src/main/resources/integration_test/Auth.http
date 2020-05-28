@@ -7,3 +7,22 @@ Content-Type: application/json
 < ./request/signup.json
 
 ###
+
+### Controller  : AuthController
+### Method      : verifyAccount
+### Description : verifica token para activar registro de usuario
+GET http://localhost:8080/api/auth/accountVerification/12222313131313
+
+
+
+###
+
+
+### Controller  : AuthController
+### Method      : login
+### Description : inico de sesion del usuario
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+< ./request/login.json
+###
