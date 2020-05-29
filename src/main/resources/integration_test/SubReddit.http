@@ -3,7 +3,6 @@
 ### Description : crea un nuevo subReddit
 POST http://localhost:8080/api/subreddit
 Content-Type: application/json
-Authorization: eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJibGFjazQifQ.I2I5sPlgquWfMTujHkAgvVGWwTXJcYofS92HGQeLRT5jjv3953SnqIaWVGURiZmyFFELaqZKo87o-pxgWWzL0y127yyHZ3DuRmG-wMjt0KAgGZIwXMz0LaToFZgQzlZsebOhc5DACvXW0JUhyxRS8z1OTdB0-bQvhCx73yKGrgelcAZsZd_DTdj52QS9DazZk4aKW3WWq58VgnpjMt-zElrae6OJWnR_-KQKdk3vbt-DjRWrLUoSowRgichuwpCAU2S9vS-679cmTvRwc0j6EWscaqdzNsPuxAJW6-CFtDqcy1F7-tKo7GbpwFpYKp7HDaK2AaN_4VIL3eLEMYxfMA
 
 < ./request/SubReddit.json
 
