@@ -4,6 +4,7 @@ import com.reddit.backend.dto.SubredditDto;
 import com.reddit.backend.exception.SubRedditNotFoundException;
 import com.reddit.backend.mapper.SubredditMapper;
 import com.reddit.backend.model.Subreddit;
+import com.reddit.backend.model.User;
 import com.reddit.backend.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,8 @@ public class SubRedditService {
 
     @Transactional
     public SubredditDto save(SubredditDto subredditDto) {
-        Subreddit subreddit = subredditRepository.save(subredditMapper.mapDtoToSubreddit(subredditDto));
+        User user = authService.getCurrentUser();
+        Subreddit subreddit = subredditRepository.save(subredditMapper.mapDtoToSubreddit(subredditDto,user));
         subredditDto.setId(subreddit.getId());
         return subredditDto;
     }
