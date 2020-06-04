@@ -1,6 +1,4 @@
-jwt:
-    expiration:
-        time: 90000
+
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -23,3 +21,6 @@ spring:
     info:
     version: "v1"
     description: "Api reddit social network"
+jwt:
+    expiration:
+        time: 90000
