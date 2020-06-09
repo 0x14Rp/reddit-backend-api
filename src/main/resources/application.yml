@@ -23,4 +23,4 @@ spring:
     description: "Api reddit social network"
 jwt:
     expiration:
-        time: 90000
+        time: 900000
